@@ -1,11 +1,20 @@
-# 2021 Homework 1
+Homework 2
+Homework can be submitted via the github link which will create a repository for you with basic template of files you can edit to solve the homework. See the the table for homework submission links which will help you create a github repository in the class team.
 
-1. Write a shell script called `count_fires.sh` which does all of the following.
-   * Download a comma delimited datasets from data.gov file which are listing of fires in several decades. (hint use `curl`)
-     * [1990s](https://gis.data.cnra.ca.gov/datasets/653647b20bc74480b335e31d6d81a52f_4.csv) https://catalog.data.gov/dataset/1990s-b2103
-     * [2000s](https://gis.data.cnra.ca.gov/datasets/653647b20bc74480b335e31d6d81a52f_12.csv) - https://catalog.data.gov/dataset/2000s
-     * [2010s](https://gis.data.cnra.ca.gov/datasets/653647b20bc74480b335e31d6d81a52f_11.csv) - https://catalog.data.gov/dataset/2010s
-   * Print out the number of fires for each decade (hint use `wc`)
-   * Print out the number of fires in each year (hint use `cut` and `uniq`)
-   * Print out the largest fire (hint use `sort`) - use the `GIS_ACRES` column
-   * Print out the total acerage burned in each year.
+https://piazza.com/ucr/fall2022/gen220/resources
+
+Submit the homework by creating a repository through github classroom Homework 2
+Write a shell script called count_fires.sh which does all of the following.
+Download a comma delimited datasets from https://data.cnra.ca.gov/ which are listing of fires in several decades larger than 5000+. search for “Recent Large Fire Perimiters” in the search box. Click on the dataset it should take you to this page. Download the CSV file. (hint use curl).
+Print out the range of years that occur in this file (hint cut out the column you want, sort and get either the smallest or largest number)
+you’ll notice there are 2 weird numbers in there “48088” and “6901” - can you tell why? You will need to go into the file and correct something (this is reminder that data are not always clean!) to avoid this problem.
+Print out the number of fires in the database
+(hint use wc, remove the header or subtract out the rows )
+Print out the number of fires that occur each year
+(hint use cut, sort and uniq -c)
+Print out the name and year of largest fire
+(hint use sort) - use the GIS_ACRES column - name is in the column FIRE_NAME
+Print out the total acreage burned in each year.
+hint you can simply the file by using cut cut -d, -f2,13 ... to get the columns you need
+awk to accumulate awk -F',' '{sum+=$2;} END{print sum;}'
+Can you filter out just the rows for a given year and add up the numbers for it?
